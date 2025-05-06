@@ -1,7 +1,30 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styles.css';
+import { colorGenerator } from '../utilities/color-generator';
 
 export default function MovieCard({ movie, isWatchlisted, toggleWatchlist }) {
+  const [color, setColor] = useState('#a9a9a9');
+
+  useEffect(() => {
+    const colorGen = colorGenerator();
+    let isCancelled = false;
+
+    const updateColor = async () => {
+      for (const col of colorGen) {
+        if (isCancelled) break;
+
+        setColor(col);
+        await new Promise((resolve) => setTimeout(resolve, 100));
+      }
+    };
+
+    updateColor();
+
+    return () => {
+      isCancelled = true;
+    };
+  }, []);
+
   const handleError = (error) => {
     error.target.src = 'images/default.jpg';
   };
@@ -15,7 +38,11 @@ export default function MovieCard({ movie, isWatchlisted, toggleWatchlist }) {
   };
 
   return (
-    <div key={movie.id} className='movie-card'>
+    <div
+      key={movie.id}
+      className='movie-card'
+      style={{ backgroundColor: color }}
+    >
       <img
         src={`images/${movie.image}`}
         alt={movie.title}
