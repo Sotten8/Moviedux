@@ -1,0 +1,12 @@
+{
+  "name": "color-generator-package",
+  "version": "1.0.0",
+  "description": "",
+  "license": "MIT",
+  "author": "Stanislav",
+  "type": "module",
+  "main": "color-generator.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}

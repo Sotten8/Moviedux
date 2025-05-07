@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import '../styles.css';
-import { colorGenerator } from '../utilities/color-generator';
+import { colorGenerator } from 'color-generator-package';
 
 export default function MovieCard({ movie, isWatchlisted, toggleWatchlist }) {
   const [color, setColor] = useState('#a9a9a9');

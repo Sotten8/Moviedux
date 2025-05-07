@@ -3,8 +3,9 @@
   "version": "0.1.0",
   "private": true,
   "license": "MIT",
+  "author": "Stanislav",
   "dependencies": {
-    "file": "./src/utilities/color-generator.js",
+    "color-generator-package": "file:src/utilities/color-generator-package",
     "@testing-library/dom": "^10.4.0",
     "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.3.0",
